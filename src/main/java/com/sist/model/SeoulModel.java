@@ -65,6 +65,7 @@ public class SeoulModel {
 		String no=request.getParameter("no");
 		String tno=request.getParameter("tno");
 		
+		
 		Map map = new HashMap();
 		map.put("table", table[Integer.parseInt(tno)]);
 		map.put("no", Integer.parseInt(no));
@@ -73,6 +74,7 @@ public class SeoulModel {
 		
 		request.setAttribute("vo", vo);
 		request.setAttribute("tno", tno);
+		
 		
 		return "../seoul/detail.jsp";
 	}

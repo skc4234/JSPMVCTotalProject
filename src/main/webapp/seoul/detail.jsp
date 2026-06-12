@@ -37,22 +37,26 @@
 				<td colspan="2"><img src="${vo.poster }" style="height: 400px" onerror="this.src='no.png'"></td>
 			</tr>
 			<tr>
-				<td colspan="2" class="text-center">${vo.title }</td>
+				<td width="20%" class="info">장소명</td>
+				<td width="80%" class="text-center">${vo.title }</td>
 			</tr>
-			<c:if test="${vo.hit!=null }">
+			<c:if test="${vo.hit>0 }">
 			<tr>
-				<td width="10%" class="info">조회수</td>
-				<td width="90%">${vo.hit }</td>
+				<td width="20%" class="info">조회수</td>
+				<td width="80%">${vo.hit }</td>
 			</tr>
 			</c:if>
 			
 			<tr>
-				<td width="10%" class="info">주소</td>
-				<td width="90%">${vo.address }</td>
+				<td width="20%" class="info">주소</td>
+				<td width="80%">${vo.address }</td>
 			</tr>
+			
+			<c:if test="${vo.msg!=null }">
 			<tr>
 				<td colspan="2">${vo.msg }</td>
 			</tr>
+			</c:if>
 			<tr>
 				<td colspan="3" class="text-right">
 					<a href="list.do?tno=${tno }" class="btn btn-sm btn-primary">목록</a>
