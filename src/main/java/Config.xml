@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 
+	순서중요(MyBatis, Spring)
+		properties? : properties 파일 읽기
+		settings? : cache, 이미 사용된 SQL문장 사용x
+		typeAliases? : VO 등록
+		typeHandlers? : 데이터형변환
+		environments? : 환경설정(Connection)
+		mappers? : mapper 등록(PreparedStatement, ResultSet 부분)
+	 -->
+	<properties resource="db.properties" />
+	<typeAliases>
+		<typeAlias type="com.sist.vo.SeoulVO" alias="SeoulVO"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="com/sist/mapper/seoul-mapper.xml"/>
+	</mappers>
+</configuration>
